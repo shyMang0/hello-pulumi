@@ -1,0 +1,13 @@
+{
+  "name": "s3-evb-sqs",
+  "description": "when upload new file to s3 event bridge rule will catch the event and send it to sqs, make sure the bucket will sent event notifcation to event bridge and reflect on console",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "dependencies": {
+    "@pulumi/pulumi": "^3.111.1",
+    "@pulumi/aws": "6.27.0"
+  }
+}

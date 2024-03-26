@@ -1,0 +1,7 @@
+name: s3-evb-sqs
+runtime: nodejs
+description: when upload new file to s3 event bridge rule will catch the event and send it to sqs, make sure the bucket will sent event notifcation to event bridge and reflect on console
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/146df417-a3a1-4bb9-8e88-e174aacfab34.zip
