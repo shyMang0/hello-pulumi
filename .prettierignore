@@ -1,0 +1,19 @@
+# Ignore node_modules directory
+/node_modules
+
+# Ignore build output directories
+/dist
+/out
+
+# Ignore log files
+*.log
+
+# Ignore configuration files
+*.config.js
+*.env
+
+# Ignore version control directories
+.git
+.svn
+/build
+/coverage

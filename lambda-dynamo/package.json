@@ -1,0 +1,15 @@
+{
+  "name": "lambda-dynamo",
+  "description": "create a typescript lambda that is attached to a previously created sqs, lambda will get values from sqs and process it",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.540.0",
+    "@aws-sdk/lib-dynamodb": "^3.540.0",
+    "@pulumi/aws": "6.28.1",
+    "@pulumi/pulumi": "^3.112.0"
+  }
+}
