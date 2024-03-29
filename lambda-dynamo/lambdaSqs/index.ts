@@ -2,7 +2,14 @@ import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, PutCommand } from "@aws-sdk/lib-dynamodb";
 
 export const handler = async (event: any = {}): Promise<any> => {
-    console.log("lambdaSqs HELLOW", JSON.stringify(event, null, 2));
+    const records = event.Records; //is an array, can be a batch so for loop
+    for (const record of records) {
+        const body = JSON.parse(record.body);
+        console.log("lambdaSqs SQS AHOYYY", JSON.stringify(body, null, 2));
+        console.log("FILENAME : ", body.detail.object.key);
+        console.log("Buket : ", body.detail.bucket.name);
+    }
+    // console.log("lambdaSqs HELLOW", JSON.stringify(event, null, 2));
 
     const dynamoDB = DynamoDBDocumentClient.from(new DynamoDBClient({}));
     const tableName = process.env.DYNAMO_TABLE_NAME;
@@ -19,7 +26,7 @@ export const handler = async (event: any = {}): Promise<any> => {
     const params = {
         TableName: tableName,
         Item: {
-            id: "value1 : " + formattedDate,
+            id: "value : " + formattedDate,
             name: "value2",
         },
     };

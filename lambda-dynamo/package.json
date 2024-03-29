@@ -8,6 +8,7 @@
   "author": "",
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.540.0",
+    "@aws-sdk/client-sns": "^3.540.0",
     "@aws-sdk/lib-dynamodb": "^3.540.0",
     "@pulumi/aws": "6.28.1",
     "@pulumi/pulumi": "^3.112.0"
