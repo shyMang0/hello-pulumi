@@ -8,6 +8,11 @@ const lambdaFunctionSqs = new aws.lambda.CallbackFunction("mrge-lambdaDynamo", {
     runtime: aws.lambda.Runtime.NodeJS20dX,
     callback: lambdaSqs.handler,
     timeout: 30,
+    environment: {
+        variables: {
+            DYNAMO_TABLE_NAME: "mrge-table-8c7e63a", // Replace from output from 1st stack
+        },
+    },
 });
 
 const evMappingLambdaSqs = new aws.lambda.EventSourceMapping(
