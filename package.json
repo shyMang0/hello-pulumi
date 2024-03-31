@@ -1,7 +1,8 @@
 {
 	"name": "hellopulumi",
 	"devDependencies": {
-		"@types/node": "^20.11.27"
+		"@types/node": "^20.11.27",
+		"prettier": "3.2.5"
 	},
 	"dependencies": {
 		"@pulumi/aws": "^6.25.1",

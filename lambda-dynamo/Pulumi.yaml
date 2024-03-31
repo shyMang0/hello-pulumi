@@ -1,0 +1,7 @@
+name: lambda-dynamo
+runtime: nodejs
+description: create a typescript lambda that is attached to a previously created sqs, lambda will get values from sqs and process it
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/625d73f5-9706-4d7d-a498-fc7ca1f55d0d.zip
