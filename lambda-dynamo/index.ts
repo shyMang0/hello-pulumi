@@ -2,19 +2,29 @@ import * as aws from "@pulumi/aws";
 import * as lambdaSqs from "./lambdaSqs";
 import * as lambdaStream from "./lambdaStream";
 
-const sqsArn = "arn:aws:sqs:ap-southeast-1:211125474624:mrge-queue-cf6d537";
+const sqsArn = "arn:aws:sqs:ap-southeast-1:211125474624:mrge-queue-3088e92";
 
+const dynamoTable = new aws.dynamodb.Table("mrge-table", {
+    attributes: [{ name: "id", type: "S" }],
+    hashKey: "id",
+    streamEnabled: true,
+    streamViewType: "NEW_IMAGE",
+    readCapacity: 1,
+    writeCapacity: 1,
+});
+
+// NEW LAMBDA FOR SQS
 const lambdaFunctionSqs = new aws.lambda.CallbackFunction("mrge-lambdaDynamo", {
     runtime: aws.lambda.Runtime.NodeJS20dX,
     callback: lambdaSqs.handler,
     timeout: 30,
     environment: {
         variables: {
-            DYNAMO_TABLE_NAME: "mrge-table-8c7e63a", // Replace from output from 1st stack
+            DYNAMO_TABLE_NAME: dynamoTable.name, // Replace from output from 1st stack
         },
     },
 });
-
+// MAP SQS EVENT TO LAMBDA
 const evMappingLambdaSqs = new aws.lambda.EventSourceMapping(
     "evMappingLambdaSqs",
     {
@@ -24,6 +34,17 @@ const evMappingLambdaSqs = new aws.lambda.EventSourceMapping(
     }
 );
 
+//NEW SNS TOPIC
+const snsTopic = new aws.sns.Topic("mrge-topic", {
+    displayName: "MRGE Topic to email",
+});
+// SUBSCRIPTION EMAIL TYPE
+const emailSubscription = new aws.sns.TopicSubscription("emailSubscription", {
+    topic: snsTopic.arn,
+    protocol: "email",
+    endpoint: "carinodrex@gmail.com",
+});
+// NEW LAMBDA FOR DYNA STREAM
 const lambdaFunctionStream = new aws.lambda.CallbackFunction(
     "mrge-lambdaStream",
     {
@@ -32,19 +53,7 @@ const lambdaFunctionStream = new aws.lambda.CallbackFunction(
         timeout: 30,
     }
 );
-
-const dynamoTable = new aws.dynamodb.Table("mrge-table", {
-    attributes: [
-        { name: "id", type: "S" },
-        // { name: "name", type: "S" },
-    ],
-    hashKey: "id",
-    streamEnabled: true,
-    streamViewType: "NEW_IMAGE",
-    readCapacity: 1,
-    writeCapacity: 1,
-});
-
+// MAP DYNAMO STREAM EVENT TO LAMBDA
 const evMappingLambdaStream = new aws.lambda.EventSourceMapping(
     "evMappingLambdaStream",
     {
@@ -54,19 +63,6 @@ const evMappingLambdaStream = new aws.lambda.EventSourceMapping(
         startingPosition: "LATEST",
     }
 );
-
-const snsTopic = new aws.sns.Topic("mrge-topic", {
-    displayName: "MRGE Topic to email",
-});
-
-const emailSubscription = new aws.sns.TopicSubscription("emailSubscription", {
-    topic: snsTopic.arn,
-    protocol: "email",
-    endpoint: "carinodrex@gmail.com",
-    // filterPolicy: {
-    //     body: ["success"]
-    // }
-});
 
 export const lambdaSqsArn = lambdaFunctionSqs.arn;
 export const snsTopicArn = snsTopic.arn;
