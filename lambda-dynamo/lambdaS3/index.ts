@@ -32,6 +32,7 @@ export const handler = async (event: any = {}): Promise<any> => {
 
         try {
             await dynamoDB.send(new PutCommand(params));
+            //try to send as batch, not 1 by one
 
             console.log("Data inserted into DynamoDB");
         } catch (error) {

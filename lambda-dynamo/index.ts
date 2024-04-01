@@ -52,6 +52,11 @@ const lambdaFunctionStream = new aws.lambda.CallbackFunction(
         runtime: aws.lambda.Runtime.NodeJS20dX,
         callback: lambdaStream.handler,
         timeout: 30,
+        environment: {
+            variables: {
+                TOPIC_ARN: snsTopic.arn, // Replace from output from 1st stack
+            },
+        },
     }
 );
 
