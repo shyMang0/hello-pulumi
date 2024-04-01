@@ -1,14 +1,18 @@
 {
 	"name": "hellopulumi",
+	"workspaces": [
+		"s3-evb-sqs",
+		"lambda-dynamo"
+	],
 	"devDependencies": {
-		"@types/node": "^20.11.27",
+		"@types/node": "^20.12.2",
 		"prettier": "3.2.5"
 	},
 	"dependencies": {
-		"@pulumi/aws": "^6.25.1",
+		"@pulumi/aws": "^6.28.2",
 		"@pulumi/aws-apigateway": "^2.4.0",
-		"@pulumi/awsx": "^2.5.0",
-		"@pulumi/pulumi": "^3.110.0",
-		"typescript": "^5.4.2"
+		"@pulumi/awsx": "^2.6.0",
+		"@pulumi/pulumi": "^3.112.0",
+		"typescript": "^5.4.3"
 	}
 }

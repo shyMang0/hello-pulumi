@@ -1,8 +1,11 @@
 import * as aws from "@pulumi/aws";
 import * as lambdaSqs from "./lambdaS3";
 import * as lambdaStream from "./lambdaStream";
+import * as pulumi from "@pulumi/pulumi";
 
-const sqsArn = "arn:aws:sqs:ap-southeast-1:211125474624:mrge-queue-d6904bf";
+const stackA = new pulumi.StackReference("shyMang0/s3-evb-sqs/dev");
+const sqsArn = stackA.getOutput("sqsArn");
+// const sqsArn = "arn:aws:sqs:ap-southeast-1:211125474624:mrge-queue-d6904bf";
 
 const dynamoTable = new aws.dynamodb.Table("mrge-table", {
     attributes: [{ name: "id", type: "S" }],
@@ -89,6 +92,5 @@ const evMappingLambdaStream = new aws.lambda.EventSourceMapping(
     }
 );
 
-export const lambdaSqsArn = lambdaFunctionSqs.arn;
 export const snsTopicArn = snsTopic.arn;
 export const lambdaStreamArn = lambdaFunctionStream.arn;
