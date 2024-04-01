@@ -9,24 +9,24 @@ export const handler = async (event: any = {}): Promise<any> => {
     console.log("All Event Data : ", records);
     for (const record of records) {
         const body = JSON.parse(record.body);
-        console.log("lambdaSqs SQS AHOYYY", JSON.stringify(body, null, 2));
-        console.log("FILENAME : ", body.detail.object.key);
-        console.log("Buket : ", body.detail.bucket.name);
+        // console.log("lambdaSqs SQS AHOYYY", JSON.stringify(body, null, 2));
+        // console.log("FILENAME : ", body.detail.object.key);
+        // console.log("Buket : ", body.detail.bucket.name);
 
-        const currentDate = new Date();
-        const formattedDate = currentDate.toLocaleString("en-US", {
-            month: "short",
-            day: "numeric",
-            year: "numeric",
-            hour: "numeric",
-            minute: "numeric",
-        });
+        // const currentDate = new Date();
+        // const formattedDate = currentDate.toLocaleString("en-US", {
+        //     month: "short",
+        //     day: "numeric",
+        //     year: "numeric",
+        //     hour: "numeric",
+        //     minute: "numeric",
+        // });
 
         const params = {
             TableName: tableName,
             Item: {
-                id: "value : " + formattedDate,
-                name: "filename : " + body.detail.object.key,
+                id: body.detail.object.etag,
+                filename: body.detail.object.key,
             },
         };
 
