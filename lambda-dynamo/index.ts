@@ -1,8 +1,8 @@
 import * as aws from "@pulumi/aws";
-import * as lambdaSqs from "./lambdaSqs";
+import * as lambdaSqs from "./lambdaS3";
 import * as lambdaStream from "./lambdaStream";
 
-const sqsArn = "arn:aws:sqs:ap-southeast-1:211125474624:mrge-queue-3088e92";
+const sqsArn = "arn:aws:sqs:ap-southeast-1:211125474624:mrge-queue-d6904bf";
 
 const dynamoTable = new aws.dynamodb.Table("mrge-table", {
     attributes: [{ name: "id", type: "S" }],
@@ -44,7 +44,8 @@ const emailSubscription = new aws.sns.TopicSubscription("emailSubscription", {
     protocol: "email",
     endpoint: "carinodrex@gmail.com",
 });
-// NEW LAMBDA FOR DYNA STREAM
+
+// NEW LAMBDA FOR DYNA STREAM to SNS
 const lambdaFunctionStream = new aws.lambda.CallbackFunction(
     "mrge-lambdaStream",
     {
@@ -53,6 +54,25 @@ const lambdaFunctionStream = new aws.lambda.CallbackFunction(
         timeout: 30,
     }
 );
+
+//to the lambda role attach AmazonSNSFullAccess policy
+const lambdaRole = lambdaFunctionStream?.roleInstance?.name.apply((role) => {
+    const policy = new aws.iam.RolePolicy("lambda-sns-policy", {
+        role: role,
+        policy: {
+            Version: "2012-10-17",
+            Statement: [
+                {
+                    Effect: "Allow",
+                    Action: "sns:*",
+                    Resource: "*",
+                },
+            ],
+        },
+    });
+    return role;
+});
+
 // MAP DYNAMO STREAM EVENT TO LAMBDA
 const evMappingLambdaStream = new aws.lambda.EventSourceMapping(
     "evMappingLambdaStream",
