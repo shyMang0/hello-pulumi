@@ -42,7 +42,7 @@ const snsTopic = new aws.sns.Topic("mrge-topic", {
 const emailSubscription = new aws.sns.TopicSubscription("emailSubscription", {
     topic: snsTopic.arn,
     protocol: "email",
-    endpoint: "carinodrex@gmail.com",
+    endpoint: "carinodrex.ext@gmail.com",
 });
 
 // NEW LAMBDA FOR DYNA STREAM to SNS
