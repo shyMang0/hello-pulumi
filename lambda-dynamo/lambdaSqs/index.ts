@@ -24,9 +24,7 @@ export const handler = async (event: SQSEvent): Promise<any> => {
         },
     };
 
-    if (!params.RequestItems) {
-        params.RequestItems = {};
-    }
+    if (!params.RequestItems) params.RequestItems = {};
 
     for (const record of records) {
         const body: S3ObjectCreatedNotificationEvent = JSON.parse(record.body);
