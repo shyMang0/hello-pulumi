@@ -1,11 +1,10 @@
 import * as aws from "@pulumi/aws";
-import * as lambdaSqs from "./lambdaS3";
+import * as lambdaSqs from "./lambdaSqs";
 import * as lambdaStream from "./lambdaStream";
 import * as pulumi from "@pulumi/pulumi";
 
 const stackA = new pulumi.StackReference("shyMang0/s3-evb-sqs/dev");
 const sqsArn = stackA.getOutput("sqsArn");
-// const sqsArn = "arn:aws:sqs:ap-southeast-1:211125474624:mrge-queue-d6904bf";
 
 const dynamoTable = new aws.dynamodb.Table("mrge-table", {
     attributes: [{ name: "id", type: "S" }],
@@ -17,13 +16,13 @@ const dynamoTable = new aws.dynamodb.Table("mrge-table", {
 });
 
 // NEW LAMBDA FOR SQS
-const lambdaFunctionSqs = new aws.lambda.CallbackFunction("mrge-lambdaDynamo", {
+const lambdaFunctionSqs = new aws.lambda.CallbackFunction("mrge-lambdaSqs", {
     runtime: aws.lambda.Runtime.NodeJS20dX,
     callback: lambdaSqs.handler,
     timeout: 30,
     environment: {
         variables: {
-            DYNAMO_TABLE_NAME: dynamoTable.name, // Replace from output from 1st stack
+            DYNAMO_TABLE_NAME: dynamoTable.name, //referenced from output from 1st stack
         },
     },
 });
@@ -33,7 +32,8 @@ const evMappingLambdaSqs = new aws.lambda.EventSourceMapping(
     {
         eventSourceArn: sqsArn,
         functionName: lambdaFunctionSqs.name,
-        batchSize: 1, //10 def Set the desired batch size
+        batchSize: 5,
+        // maximumBatchingWindowInSeconds: 2,
     }
 );
 
@@ -57,7 +57,7 @@ const lambdaFunctionStream = new aws.lambda.CallbackFunction(
         timeout: 30,
         environment: {
             variables: {
-                TOPIC_ARN: snsTopic.arn, // Replace from output from 1st stack
+                TOPIC_ARN: snsTopic.arn, // output from 1st stack
             },
         },
     }
@@ -72,8 +72,8 @@ const lambdaRole = lambdaFunctionStream?.roleInstance?.name.apply((role) => {
             Statement: [
                 {
                     Effect: "Allow",
-                    Action: "sns:*",
-                    Resource: "*",
+                    Action: "sns:Publish",
+                    Resource: snsTopic.arn,
                 },
             ],
         },
@@ -87,10 +87,20 @@ const evMappingLambdaStream = new aws.lambda.EventSourceMapping(
     {
         eventSourceArn: dynamoTable.streamArn,
         functionName: lambdaFunctionStream.name,
-        batchSize: 1,
+        batchSize: 5,
+        maximumBatchingWindowInSeconds: 2,
         startingPosition: "LATEST",
+        filterCriteria: {
+            filters: [
+                {
+                    pattern: '{ "eventName" : ["INSERT"] }',
+                },
+            ],
+        },
     }
 );
 
 export const snsTopicArn = snsTopic.arn;
-export const lambdaStreamArn = lambdaFunctionStream.arn;
+export const lambdaStream2 = lambdaFunctionStream.arn;
+export const lambdaSqs1 = lambdaFunctionSqs.arn;
+export const receivedSqsArn = sqsArn;

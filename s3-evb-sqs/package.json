@@ -7,7 +7,7 @@
   },
   "author": "",
   "dependencies": {
-    "@pulumi/pulumi": "^3.111.1",
-    "@pulumi/aws": "6.27.0"
+    "@pulumi/pulumi": "^3.112.0",
+    "@pulumi/aws": "6.28.2"
   }
 }
