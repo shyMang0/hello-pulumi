@@ -1,21 +1,25 @@
 import { SNSClient, PublishCommand } from "@aws-sdk/client-sns";
+import { DynamoDBStreamEvent } from "aws-lambda";
 
-export const handler = async (event: any = {}): Promise<any> => {
+export const handler = async (event: DynamoDBStreamEvent): Promise<any> => {
     console.log(
-        "lambdaStream STREAM AHOYYY",
+        "lambdaStream Data :",
         event.Records.length,
         JSON.stringify(event, null, 2)
     );
     const TopicArn = process.env.TOPIC_ARN;
     const sns = new SNSClient();
 
+    const records = event.Records;
+    let filenames = records.map(
+        (record) => record.dynamodb?.NewImage?.filename.S
+    );
+
     try {
-        //if batch, batch in 1 email
         await sns.send(
             new PublishCommand({
-                Subject: `subject from lambda ${event.Records.length}`,
-                Message: `Hello from Lambda! ${event.Records.length} - ${JSON.stringify(event.Records[0].dynamodb.NewImage)}`,
-                // TopicArn: "arn:aws:sns:ap-southeast-1:211125474624:test-topic",
+                Subject: `SNS from Lambda with Stream Origin`,
+                Message: `body => filenames : ${event.Records.length} - ${JSON.stringify(filenames)}`,
                 TopicArn: TopicArn,
             })
         );
