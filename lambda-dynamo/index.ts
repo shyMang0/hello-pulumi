@@ -27,15 +27,12 @@ const lambdaFunctionSqs = new aws.lambda.CallbackFunction("mrge-lambdaSqs", {
     },
 });
 // MAP SQS EVENT TO LAMBDA
-const evMappingLambdaSqs = new aws.lambda.EventSourceMapping(
-    "evMappingLambdaSqs",
-    {
-        eventSourceArn: sqsArn,
-        functionName: lambdaFunctionSqs.name,
-        batchSize: 5,
-        // maximumBatchingWindowInSeconds: 2,
-    }
-);
+const evMappingLambdaSqs = new aws.lambda.EventSourceMapping("evMappingLambdaSqs", {
+    eventSourceArn: sqsArn,
+    functionName: lambdaFunctionSqs.name,
+    batchSize: 5,
+    // maximumBatchingWindowInSeconds: 2,
+});
 
 //NEW SNS TOPIC
 const snsTopic = new aws.sns.Topic("mrge-topic", {
@@ -49,19 +46,16 @@ const emailSubscription = new aws.sns.TopicSubscription("emailSubscription", {
 });
 
 // NEW LAMBDA FOR DYNA STREAM to SNS
-const lambdaFunctionStream = new aws.lambda.CallbackFunction(
-    "mrge-lambdaStream",
-    {
-        runtime: aws.lambda.Runtime.NodeJS20dX,
-        callback: lambdaStream.handler,
-        timeout: 30,
-        environment: {
-            variables: {
-                TOPIC_ARN: snsTopic.arn, // output from 1st stack
-            },
+const lambdaFunctionStream = new aws.lambda.CallbackFunction("mrge-lambdaStream", {
+    runtime: aws.lambda.Runtime.NodeJS20dX,
+    callback: lambdaStream.handler,
+    timeout: 30,
+    environment: {
+        variables: {
+            TOPIC_ARN: snsTopic.arn, // output from 1st stack
         },
-    }
-);
+    },
+});
 
 //to the lambda role attach AmazonSNSFullAccess policy
 const lambdaRole = lambdaFunctionStream?.roleInstance?.name.apply((role) => {
@@ -82,23 +76,20 @@ const lambdaRole = lambdaFunctionStream?.roleInstance?.name.apply((role) => {
 });
 
 // MAP DYNAMO STREAM EVENT TO LAMBDA
-const evMappingLambdaStream = new aws.lambda.EventSourceMapping(
-    "evMappingLambdaStream",
-    {
-        eventSourceArn: dynamoTable.streamArn,
-        functionName: lambdaFunctionStream.name,
-        batchSize: 5,
-        maximumBatchingWindowInSeconds: 2,
-        startingPosition: "LATEST",
-        filterCriteria: {
-            filters: [
-                {
-                    pattern: '{ "eventName" : ["INSERT"] }',
-                },
-            ],
-        },
-    }
-);
+const evMappingLambdaStream = new aws.lambda.EventSourceMapping("evMappingLambdaStream", {
+    eventSourceArn: dynamoTable.streamArn,
+    functionName: lambdaFunctionStream.name,
+    batchSize: 5,
+    maximumBatchingWindowInSeconds: 2,
+    startingPosition: "LATEST",
+    filterCriteria: {
+        filters: [
+            {
+                pattern: '{ "eventName" : ["INSERT"] }',
+            },
+        ],
+    },
+});
 
 export const snsTopicArn = snsTopic.arn;
 export const lambdaStream2 = lambdaFunctionStream.arn;

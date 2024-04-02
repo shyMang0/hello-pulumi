@@ -2,18 +2,12 @@ import { SNSClient, PublishCommand } from "@aws-sdk/client-sns";
 import { DynamoDBStreamEvent } from "aws-lambda";
 
 export const handler = async (event: DynamoDBStreamEvent): Promise<any> => {
-    console.log(
-        "lambdaStream Data :",
-        event.Records.length,
-        JSON.stringify(event, null, 2)
-    );
+    console.log("lambdaStream Data :", event.Records.length, JSON.stringify(event, null, 2));
     const TopicArn = process.env.TOPIC_ARN;
     const sns = new SNSClient();
 
     const records = event.Records;
-    let filenames = records.map(
-        (record) => record.dynamodb?.NewImage?.filename.S
-    );
+    let filenames = records.map((record) => record.dynamodb?.NewImage?.filename.S);
 
     try {
         await sns.send(
