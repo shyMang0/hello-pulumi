@@ -31,7 +31,7 @@ const evMappingLambdaSqs = new aws.lambda.EventSourceMapping("evMappingLambdaSqs
     eventSourceArn: sqsArn,
     functionName: lambdaFunctionSqs.name,
     batchSize: 5,
-    // maximumBatchingWindowInSeconds: 2,
+    maximumBatchingWindowInSeconds: 2,
 });
 
 //NEW SNS TOPIC
@@ -83,6 +83,7 @@ const evMappingLambdaStream = new aws.lambda.EventSourceMapping("evMappingLambda
     maximumBatchingWindowInSeconds: 2,
     startingPosition: "LATEST",
     filterCriteria: {
+        //reduce lambda triggering by filtering only INSERT events
         filters: [
             {
                 pattern: '{ "eventName" : ["INSERT"] }',
