@@ -1,10 +1,10 @@
 import * as aws from "@pulumi/aws";
-import * as lambdaSqs from "./lambdaSqs";
-import * as lambdaStream from "./lambdaStream";
+import { handler as lambdaSqsHandler } from "./lambdaSqs";
+import { handler as lambdaStreamHandler } from "./lambdaStream";
 import * as pulumi from "@pulumi/pulumi";
 
 const stackA = new pulumi.StackReference("shyMang0/s3-evb-sqs/dev");
-const sqsArn = stackA.getOutput("sqsArn");
+const SQS_ARN = stackA.getOutput("SQS_ARN");
 
 const dynamoTable = new aws.dynamodb.Table("mrge-table", {
     attributes: [{ name: "id", type: "S" }],
@@ -16,9 +16,9 @@ const dynamoTable = new aws.dynamodb.Table("mrge-table", {
 });
 
 // NEW LAMBDA FOR SQS
-const lambdaFunctionSqs = new aws.lambda.CallbackFunction("mrge-lambdaSqs", {
+const lambdaSqs = new aws.lambda.CallbackFunction("mrge-lambda-sqs", {
     runtime: aws.lambda.Runtime.NodeJS20dX,
-    callback: lambdaSqs.handler,
+    callback: lambdaSqsHandler,
     timeout: 30,
     environment: {
         variables: {
@@ -27,28 +27,32 @@ const lambdaFunctionSqs = new aws.lambda.CallbackFunction("mrge-lambdaSqs", {
     },
 });
 // MAP SQS EVENT TO LAMBDA
-const evMappingLambdaSqs = new aws.lambda.EventSourceMapping("evMappingLambdaSqs", {
-    eventSourceArn: sqsArn,
-    functionName: lambdaFunctionSqs.name,
+const lambdaTrigger_sqs = new aws.lambda.EventSourceMapping("lambda-trigger-sqs", {
+    eventSourceArn: SQS_ARN,
+    functionName: lambdaSqs.name,
     batchSize: 5,
-    maximumBatchingWindowInSeconds: 2,
+    maximumBatchingWindowInSeconds: 3,
+    scalingConfig: {
+        maximumConcurrency: 2,
+        //limits to 2 concurrent executions
+        //to maximum 5 messages per batch
+        //the default has 5 concurrent executions
+    },
 });
 
-//NEW SNS TOPIC
 const snsTopic = new aws.sns.Topic("mrge-topic", {
     displayName: "MRGE Topic to email",
 });
-// SUBSCRIPTION EMAIL TYPE
-const emailSubscription = new aws.sns.TopicSubscription("emailSubscription", {
+const subscriptionEmail = new aws.sns.TopicSubscription("subscription-email", {
     topic: snsTopic.arn,
     protocol: "email",
     endpoint: "carinodrex.ext@gmail.com",
 });
 
 // NEW LAMBDA FOR DYNA STREAM to SNS
-const lambdaFunctionStream = new aws.lambda.CallbackFunction("mrge-lambdaStream", {
+const lambdaStream = new aws.lambda.CallbackFunction("mrge-lambda-stream", {
     runtime: aws.lambda.Runtime.NodeJS20dX,
-    callback: lambdaStream.handler,
+    callback: lambdaStreamHandler,
     timeout: 30,
     environment: {
         variables: {
@@ -58,7 +62,7 @@ const lambdaFunctionStream = new aws.lambda.CallbackFunction("mrge-lambdaStream"
 });
 
 //to the lambda role attach AmazonSNSFullAccess policy
-const lambdaRole = lambdaFunctionStream?.roleInstance?.name.apply((role) => {
+const lambdaRole = lambdaStream?.roleInstance?.name.apply((role) => {
     const policy = new aws.iam.RolePolicy("lambda-sns-policy", {
         role: role,
         policy: {
@@ -76,11 +80,11 @@ const lambdaRole = lambdaFunctionStream?.roleInstance?.name.apply((role) => {
 });
 
 // MAP DYNAMO STREAM EVENT TO LAMBDA
-const evMappingLambdaStream = new aws.lambda.EventSourceMapping("evMappingLambdaStream", {
+const lambdaTrigger_stream = new aws.lambda.EventSourceMapping("lambda-trigger-stream", {
     eventSourceArn: dynamoTable.streamArn,
-    functionName: lambdaFunctionStream.name,
+    functionName: lambdaStream.name,
     batchSize: 5,
-    maximumBatchingWindowInSeconds: 2,
+    maximumBatchingWindowInSeconds: 5,
     startingPosition: "LATEST",
     filterCriteria: {
         //reduce lambda triggering by filtering only INSERT events
@@ -92,7 +96,7 @@ const evMappingLambdaStream = new aws.lambda.EventSourceMapping("evMappingLambda
     },
 });
 
-export const snsTopicArn = snsTopic.arn;
-export const lambdaStream2 = lambdaFunctionStream.arn;
-export const lambdaSqs1 = lambdaFunctionSqs.arn;
-export const receivedSqsArn = sqsArn;
+export const PARAMETER_SQS_ARN = SQS_ARN;
+export const TOPIC_ARN = snsTopic.arn;
+export const LAMBDA_SQS = lambdaSqs.arn;
+export const LAMBDA_STREAM = lambdaStream.arn;

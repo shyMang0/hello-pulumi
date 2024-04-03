@@ -5,13 +5,15 @@ import * as aws from "@pulumi/aws";
 const bucket = new aws.s3.Bucket("mrge-bucket");
 
 // Connect the S3 bucket to EventBridge
-const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
+const bucketNotification = new aws.s3.BucketNotification("mrge-bucket-notification", {
     bucket: bucket.id,
     eventbridge: true,
 });
 
-// Create an AWS resource (SQS Queue)
-const queue = new aws.sqs.Queue("mrge-queue");
+const queue = new aws.sqs.Queue("mrge-queue", {
+    // delaySeconds: 5,
+    // receiveWaitTimeSeconds: 5,
+});
 
 const rule = new aws.cloudwatch.EventRule("mrge-rule", {
     eventPattern: bucket.bucket.apply((bucketName) =>
@@ -38,7 +40,7 @@ const sqsPolicy = new aws.sqs.QueuePolicy("mrge-policy", {
     queueUrl: queue.id,
     policy: {
         Version: "2012-10-17",
-        Id: `${queue.arn}/SQSDefaultPolicy`,
+        Id: queue.arn.apply((arn) => `${arn}/SQSDefaultPolicy`),
         Statement: [
             {
                 Sid: "Allow-EventBridge",
@@ -56,7 +58,6 @@ const sqsPolicy = new aws.sqs.QueuePolicy("mrge-policy", {
     },
 });
 
-// Export the names of the created resources
-export const bucketName = bucket.bucket;
+export const BUCKET_NAME = bucket.bucket;
 // export const queueUrl = queue.url;
-export const sqsArn = queue.arn;
+export const SQS_ARN = queue.arn;
