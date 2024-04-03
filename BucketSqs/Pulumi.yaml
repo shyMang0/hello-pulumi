@@ -1,4 +1,4 @@
-name: s3-evb-sqs
+name: BucketSqs
 runtime: nodejs
 description: when upload new file to s3 event bridge rule will catch the event and send it to sqs, make sure the bucket will sent event notifcation to event bridge and reflect on console
 config:

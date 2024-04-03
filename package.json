@@ -1,11 +1,11 @@
 {
 	"name": "hellopulumi",
 	"workspaces": [
-		"s3-evb-sqs",
-		"lambda-dynamo"
+		"BucketSqs",
+		"LambdaDynamo"
 	],
 	"devDependencies": {
-		"@types/node": "^20.12.2",
+		"@types/node": "^20.12.3",
 		"prettier": "3.2.5"
 	},
 	"dependencies": {

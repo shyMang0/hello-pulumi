@@ -1,4 +1,4 @@
-name: lambda-dynamo
+name: LambdaDynamo
 runtime: nodejs
 description: create a typescript lambda that is attached to a previously created sqs, lambda will get values from sqs and process it
 config:

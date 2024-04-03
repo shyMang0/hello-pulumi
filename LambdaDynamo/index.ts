@@ -3,7 +3,7 @@ import { handler as lambdaSqsHandler } from "./lambdaSqs";
 import { handler as lambdaStreamHandler } from "./lambdaStream";
 import * as pulumi from "@pulumi/pulumi";
 
-const stackA = new pulumi.StackReference("shyMang0/s3-evb-sqs/dev");
+const stackA = new pulumi.StackReference("shyMang0/BucketSqs/dev");
 const SQS_ARN = stackA.getOutput("SQS_ARN");
 
 const dynamoTable = new aws.dynamodb.Table("mrge-table", {
