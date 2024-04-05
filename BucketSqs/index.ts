@@ -59,5 +59,13 @@ const sqsPolicy = new aws.sqs.QueuePolicy("mrge-policy", {
 });
 
 export const BUCKET_NAME = bucket.bucket;
-// export const queueUrl = queue.url;
 export const SQS_ARN = queue.arn;
+// export const BUCKET = bucket;
+// export const queueUrl = queue.url;
+export const INFRA_TEST = {
+    bucketUrn: bucket.urn,
+    bucketNotificationEvBridge: bucketNotification.eventbridge,
+    sqsUrn: queue.urn,
+    targetUrn: target.urn,
+    sqsPolicyUrn: sqsPolicy.urn,
+};

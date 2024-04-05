@@ -62,7 +62,7 @@ const lambdaStream = new aws.lambda.CallbackFunction("mrge-lambda-stream", {
 });
 
 //to the lambda role attach AmazonSNSFullAccess policy
-const lambdaRole = lambdaStream?.roleInstance?.name.apply((role) => {
+const lambdaRole = lambdaStream?.roleInstance?.name.apply((role: any) => {
     const policy = new aws.iam.RolePolicy("lambda-sns-policy", {
         role: role,
         policy: {

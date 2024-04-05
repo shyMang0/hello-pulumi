@@ -1,22 +1,25 @@
 {
   "name": "lambda-dynamo",
-  "description": "create a typescript lambda that is attached to a previously created sqs, lambda will get values from sqs and process it",
+  "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.540.0",
-    "@aws-sdk/client-lambda": "^3.540.0",
+    "@aws-sdk/client-lambda": "^3.548.0",
     "@aws-sdk/client-s3": "^3.540.0",
     "@aws-sdk/client-sns": "^3.540.0",
     "@aws-sdk/client-sqs": "^3.547.0",
     "@aws-sdk/lib-dynamodb": "^3.540.0",
-    "@pulumi/aws": "6.28.2",
+    "@pulumi/aws": "6.29.0",
     "@pulumi/pulumi": "^3.112.0"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.136"
+    "@types/aws-lambda": "^8.10.136",
+    "@types/jest": "^29.5.12",
+    "aws-sdk": "^2.1592.0",
+    "ts-jest": "^29.1.2"
   }
 }
