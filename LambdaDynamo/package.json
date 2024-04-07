@@ -1,6 +1,6 @@
 {
   "name": "lambda-dynamo",
-  "description": "",
+  "description": "lambda dynamo",
   "main": "index.ts",
   "scripts": {
     "test": "jest"
