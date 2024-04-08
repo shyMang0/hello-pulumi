@@ -2,20 +2,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 
 // Create an AWS resource (S3 Bucket)
-const bucket = new aws.s3.Bucket("mrge-bucket");
+const bucket = new aws.s3.Bucket("dcc-bucket");
 
 // Connect the S3 bucket to EventBridge
-const bucketNotification = new aws.s3.BucketNotification("mrge-bucket-notification", {
+const bucketNotification = new aws.s3.BucketNotification("dcc-bucket-notification", {
     bucket: bucket.id,
     eventbridge: true,
 });
 
-const queue = new aws.sqs.Queue("mrge-queue", {
+const queue = new aws.sqs.Queue("dcc-queue", {
     // delaySeconds: 5,
     // receiveWaitTimeSeconds: 5,
 });
 
-const rule = new aws.cloudwatch.EventRule("mrge-rule", {
+const rule = new aws.cloudwatch.EventRule("dcc-rule", {
     eventPattern: bucket.bucket.apply((bucketName) =>
         JSON.stringify({
             source: ["aws.s3"],
@@ -30,13 +30,13 @@ const rule = new aws.cloudwatch.EventRule("mrge-rule", {
 });
 
 // Set the SQS queue as the target for the EventBridge rule
-const target = new aws.cloudwatch.EventTarget("mrge-target", {
+const target = new aws.cloudwatch.EventTarget("dcc-target", {
     rule: rule.name,
     arn: queue.arn,
 });
 
 // Grant EventBridge permission to send messages to the SQS queue
-const sqsPolicy = new aws.sqs.QueuePolicy("mrge-policy", {
+const sqsPolicy = new aws.sqs.QueuePolicy("dcc-policy", {
     queueUrl: queue.id,
     policy: {
         Version: "2012-10-17",
