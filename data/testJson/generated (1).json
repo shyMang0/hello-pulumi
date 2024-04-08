@@ -1,0 +1,40 @@
+{
+  "id": "660caee73b14a63fa72d1ec1",
+  "guid": "c5643e60-053b-45b6-92f2-98bbc36e9789",
+  "isActive": false,
+  "balance": "$2,811.84",
+  "age": 26,
+  "eyeColor": "brown",
+  "name": "Mallory Finley",
+  "gender": "female",
+  "company": "ZANITY",
+  "email": "malloryfinley@zanity.com",
+  "phone": "+1 (905) 438-3360",
+  "address": "282 Prospect Street, Avalon, Oklahoma, 6826",
+  "registered": "2017-09-30T03:01:02 -08:00",
+  "latitude": 65.87171,
+  "longitude": 104.53265,
+  "tags": [
+    "labore",
+    "exercitation",
+    "ea",
+    "ea",
+    "anim",
+    "esse",
+    "dolor"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Dee Prince"
+    },
+    {
+      "id": 1,
+      "name": "Vonda Knapp"
+    },
+    {
+      "id": 2,
+      "name": "Reva Curtis"
+    }
+  ]
+}

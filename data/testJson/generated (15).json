@@ -1,0 +1,40 @@
+{
+  "id": "660caefed88347d7afc997eb",
+  "guid": "ffe11a97-7361-48e0-8188-9b196aeb51a6",
+  "isActive": false,
+  "balance": "$3,562.62",
+  "age": 32,
+  "eyeColor": "brown",
+  "name": "Rosetta Wyatt",
+  "gender": "female",
+  "company": "GENMY",
+  "email": "rosettawyatt@genmy.com",
+  "phone": "+1 (844) 552-3920",
+  "address": "433 Commerce Street, Kingstowne, Maine, 178",
+  "registered": "2019-03-20T02:30:31 -08:00",
+  "latitude": -32.506985,
+  "longitude": 101.288147,
+  "tags": [
+    "eiusmod",
+    "tempor",
+    "consectetur",
+    "qui",
+    "reprehenderit",
+    "irure",
+    "ad"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Britt Potter"
+    },
+    {
+      "id": 1,
+      "name": "Jeanette Jackson"
+    },
+    {
+      "id": 2,
+      "name": "Levine Velasquez"
+    }
+  ]
+}

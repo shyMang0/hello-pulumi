@@ -1,0 +1,40 @@
+{
+  "id": "660caeed787a935e110133da",
+  "guid": "84eb76f2-e729-4317-974e-818b2737382e",
+  "isActive": true,
+  "balance": "$2,077.97",
+  "age": 27,
+  "eyeColor": "brown",
+  "name": "Robert Foley",
+  "gender": "female",
+  "company": "ARCHITAX",
+  "email": "robertfoley@architax.com",
+  "phone": "+1 (895) 506-2529",
+  "address": "646 Wortman Avenue, Fairhaven, Kentucky, 4876",
+  "registered": "2020-11-16T03:59:03 -08:00",
+  "latitude": 46.95413,
+  "longitude": 3.318554,
+  "tags": [
+    "nostrud",
+    "est",
+    "fugiat",
+    "sit",
+    "enim",
+    "magna",
+    "incididunt"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Chasity Alford"
+    },
+    {
+      "id": 1,
+      "name": "Gail Rojas"
+    },
+    {
+      "id": 2,
+      "name": "Melva Cohen"
+    }
+  ]
+}

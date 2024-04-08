@@ -1,0 +1,40 @@
+{
+  "id": "660caf01a4f9027ce080657f",
+  "guid": "8c6ad96d-d3a9-46b4-8457-9a2567b478c5",
+  "isActive": false,
+  "balance": "$2,377.33",
+  "age": 23,
+  "eyeColor": "green",
+  "name": "Toni Stone",
+  "gender": "female",
+  "company": "OLUCORE",
+  "email": "tonistone@olucore.com",
+  "phone": "+1 (879) 462-3818",
+  "address": "106 Mayfair Drive, Grill, West Virginia, 1930",
+  "registered": "2023-03-13T01:17:32 -08:00",
+  "latitude": 34.54388,
+  "longitude": 155.051754,
+  "tags": [
+    "dolore",
+    "dolore",
+    "qui",
+    "ea",
+    "laboris",
+    "amet",
+    "ex"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Hunter Hawkins"
+    },
+    {
+      "id": 1,
+      "name": "Walton Pickett"
+    },
+    {
+      "id": 2,
+      "name": "Georgia Cervantes"
+    }
+  ]
+}

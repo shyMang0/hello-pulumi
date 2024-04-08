@@ -1,0 +1,40 @@
+{
+  "id": "660caee9b022ab84065ce220",
+  "guid": "6d8cd361-404c-4cfc-a97a-2641a1bc25b0",
+  "isActive": false,
+  "balance": "$2,675.66",
+  "age": 30,
+  "eyeColor": "green",
+  "name": "Doris Ford",
+  "gender": "female",
+  "company": "GEEKULAR",
+  "email": "dorisford@geekular.com",
+  "phone": "+1 (818) 597-3496",
+  "address": "893 Opal Court, Abrams, Palau, 2379",
+  "registered": "2020-08-14T09:17:34 -08:00",
+  "latitude": -23.491565,
+  "longitude": 71.305616,
+  "tags": [
+    "enim",
+    "dolore",
+    "excepteur",
+    "laborum",
+    "est",
+    "ut",
+    "mollit"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Marla Long"
+    },
+    {
+      "id": 1,
+      "name": "Cline Mueller"
+    },
+    {
+      "id": 2,
+      "name": "Raquel Stafford"
+    }
+  ]
+}

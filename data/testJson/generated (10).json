@@ -1,0 +1,40 @@
+{
+  "id": "660caef6acb853ad58dbba50",
+  "guid": "e5f8e445-3161-40d9-a4be-ad01926d1bab",
+  "isActive": true,
+  "balance": "$2,022.54",
+  "age": 20,
+  "eyeColor": "blue",
+  "name": "Coleman Woodward",
+  "gender": "male",
+  "company": "ENERVATE",
+  "email": "colemanwoodward@enervate.com",
+  "phone": "+1 (846) 585-2683",
+  "address": "632 Ashford Street, Rosburg, Colorado, 3822",
+  "registered": "2021-12-16T11:10:40 -08:00",
+  "latitude": -70.445373,
+  "longitude": 14.707832,
+  "tags": [
+    "quis",
+    "minim",
+    "nulla",
+    "culpa",
+    "ea",
+    "minim",
+    "nulla"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Rosales Reeves"
+    },
+    {
+      "id": 1,
+      "name": "Weaver Miller"
+    },
+    {
+      "id": 2,
+      "name": "Sloan Skinner"
+    }
+  ]
+}

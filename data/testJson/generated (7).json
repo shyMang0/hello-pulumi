@@ -1,0 +1,40 @@
+{
+  "id": "660caef20e725ec5c249e22e",
+  "guid": "8ee472f7-bc4a-463b-80ea-93ef82d6e612",
+  "isActive": false,
+  "balance": "$3,975.85",
+  "age": 33,
+  "eyeColor": "green",
+  "name": "Todd Rosales",
+  "gender": "male",
+  "company": "ARCHITAX",
+  "email": "toddrosales@architax.com",
+  "phone": "+1 (884) 519-2050",
+  "address": "559 Charles Place, Cannondale, Utah, 2089",
+  "registered": "2020-06-02T02:44:05 -08:00",
+  "latitude": 49.110696,
+  "longitude": 108.111634,
+  "tags": [
+    "velit",
+    "sit",
+    "ad",
+    "eiusmod",
+    "occaecat",
+    "pariatur",
+    "irure"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Marietta Mejia"
+    },
+    {
+      "id": 1,
+      "name": "Lane Leonard"
+    },
+    {
+      "id": 2,
+      "name": "Gay Bradshaw"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "660caf14c554f8b19a91b114",
+  "guid": "db57aec9-0175-4d5e-95cb-913ad7fb410a",
+  "isActive": true,
+  "balance": "$3,692.04",
+  "age": 37,
+  "eyeColor": "brown",
+  "name": "Diaz Lucas",
+  "gender": "male",
+  "company": "ENERFORCE",
+  "email": "diazlucas@enerforce.com",
+  "phone": "+1 (903) 592-3543",
+  "address": "171 Irving Avenue, Boonville, Illinois, 6546",
+  "registered": "2014-12-18T03:35:03 -08:00",
+  "latitude": -39.357106,
+  "longitude": 113.707574,
+  "tags": [
+    "aliquip",
+    "aliqua",
+    "eu",
+    "fugiat",
+    "magna",
+    "ea",
+    "ut"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Lancaster Deleon"
+    },
+    {
+      "id": 1,
+      "name": "Alyssa Cohen"
+    },
+    {
+      "id": 2,
+      "name": "Gayle Richmond"
+    }
+  ]
+}

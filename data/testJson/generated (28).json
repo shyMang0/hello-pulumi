@@ -1,0 +1,40 @@
+{
+  "id": "660caf13fc59c7197feee63f",
+  "guid": "600f6bfc-45a8-4a68-8361-e2b08dd9db38",
+  "isActive": false,
+  "balance": "$2,134.79",
+  "age": 20,
+  "eyeColor": "green",
+  "name": "Irwin Buchanan",
+  "gender": "male",
+  "company": "MANTRO",
+  "email": "irwinbuchanan@mantro.com",
+  "phone": "+1 (850) 448-2300",
+  "address": "994 Nevins Street, Kansas, American Samoa, 6113",
+  "registered": "2014-02-23T09:18:22 -08:00",
+  "latitude": 9.464809,
+  "longitude": 135.047955,
+  "tags": [
+    "exercitation",
+    "excepteur",
+    "eiusmod",
+    "laborum",
+    "ut",
+    "occaecat",
+    "sit"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Holman Puckett"
+    },
+    {
+      "id": 1,
+      "name": "Shari Rodriquez"
+    },
+    {
+      "id": 2,
+      "name": "Leann Delgado"
+    }
+  ]
+}

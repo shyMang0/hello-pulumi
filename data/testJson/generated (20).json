@@ -1,0 +1,40 @@
+{
+  "id": "660caf062ceda9a457dd74f9",
+  "guid": "3e295ca9-fdb3-414c-b6f2-cde3f221b21b",
+  "isActive": false,
+  "balance": "$1,715.59",
+  "age": 25,
+  "eyeColor": "brown",
+  "name": "Burt Cherry",
+  "gender": "male",
+  "company": "ILLUMITY",
+  "email": "burtcherry@illumity.com",
+  "phone": "+1 (820) 496-3181",
+  "address": "599 Post Court, Oley, Ohio, 2718",
+  "registered": "2021-01-12T01:12:26 -08:00",
+  "latitude": -37.236387,
+  "longitude": 66.684406,
+  "tags": [
+    "anim",
+    "esse",
+    "sit",
+    "adipisicing",
+    "tempor",
+    "aute",
+    "aliquip"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Fuentes Beach"
+    },
+    {
+      "id": 1,
+      "name": "Arlene Coffey"
+    },
+    {
+      "id": 2,
+      "name": "Dionne Gordon"
+    }
+  ]
+}

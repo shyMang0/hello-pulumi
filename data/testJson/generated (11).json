@@ -1,0 +1,40 @@
+{
+  "id": "660caef8ceb0b1535b4a6412",
+  "guid": "2fca7def-b899-43e1-ba96-6c1e7dded712",
+  "isActive": true,
+  "balance": "$3,728.55",
+  "age": 34,
+  "eyeColor": "green",
+  "name": "Best Richmond",
+  "gender": "male",
+  "company": "ESCHOIR",
+  "email": "bestrichmond@eschoir.com",
+  "phone": "+1 (898) 596-2918",
+  "address": "604 Reeve Place, Savannah, Virginia, 3890",
+  "registered": "2019-09-10T04:19:07 -08:00",
+  "latitude": 83.2827,
+  "longitude": 123.219339,
+  "tags": [
+    "ipsum",
+    "labore",
+    "consequat",
+    "eu",
+    "reprehenderit",
+    "qui",
+    "Lorem"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Gabriela Rosales"
+    },
+    {
+      "id": 1,
+      "name": "Sears Mcintyre"
+    },
+    {
+      "id": 2,
+      "name": "Avery Aguilar"
+    }
+  ]
+}

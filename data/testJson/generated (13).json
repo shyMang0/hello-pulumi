@@ -1,0 +1,40 @@
+{
+  "id": "660caefabcd1c1397fe3a607",
+  "guid": "85ecc096-5b35-450f-8e99-99fb279e6e94",
+  "isActive": true,
+  "balance": "$1,264.12",
+  "age": 33,
+  "eyeColor": "brown",
+  "name": "Marianne Tucker",
+  "gender": "female",
+  "company": "UNI",
+  "email": "mariannetucker@uni.com",
+  "phone": "+1 (859) 575-2136",
+  "address": "602 Voorhies Avenue, Naomi, New Jersey, 7866",
+  "registered": "2020-04-24T06:36:43 -08:00",
+  "latitude": 20.353734,
+  "longitude": -9.91866,
+  "tags": [
+    "exercitation",
+    "occaecat",
+    "est",
+    "magna",
+    "voluptate",
+    "reprehenderit",
+    "nulla"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Gabrielle Brooks"
+    },
+    {
+      "id": 1,
+      "name": "Rene Small"
+    },
+    {
+      "id": 2,
+      "name": "Ruth Patrick"
+    }
+  ]
+}

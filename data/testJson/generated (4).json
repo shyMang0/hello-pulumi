@@ -1,0 +1,40 @@
+{
+  "id": "660caeec1e30c155fc2b0a4a",
+  "guid": "32509399-be92-4165-936c-2a21f4926cad",
+  "isActive": true,
+  "balance": "$3,563.14",
+  "age": 20,
+  "eyeColor": "green",
+  "name": "Colon Cobb",
+  "gender": "male",
+  "company": "AMTAS",
+  "email": "coloncobb@amtas.com",
+  "phone": "+1 (954) 467-3768",
+  "address": "401 Emmons Avenue, Gambrills, Delaware, 563",
+  "registered": "2020-04-03T01:58:53 -08:00",
+  "latitude": 42.332364,
+  "longitude": -98.711769,
+  "tags": [
+    "elit",
+    "voluptate",
+    "enim",
+    "consectetur",
+    "ullamco",
+    "velit",
+    "exercitation"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Lilian Morales"
+    },
+    {
+      "id": 1,
+      "name": "Patty Wolf"
+    },
+    {
+      "id": 2,
+      "name": "Roxanne Olsen"
+    }
+  ]
+}

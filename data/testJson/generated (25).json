@@ -1,0 +1,40 @@
+{
+  "id": "660caf0d67a024900524f5f7",
+  "guid": "2a9a7480-af34-41f5-8478-39c84465b022",
+  "isActive": false,
+  "balance": "$3,424.13",
+  "age": 36,
+  "eyeColor": "green",
+  "name": "Dixon Mercer",
+  "gender": "male",
+  "company": "EVEREST",
+  "email": "dixonmercer@everest.com",
+  "phone": "+1 (907) 493-3912",
+  "address": "607 Langham Street, Irwin, Vermont, 1492",
+  "registered": "2014-10-13T03:46:44 -08:00",
+  "latitude": -57.314449,
+  "longitude": 93.914008,
+  "tags": [
+    "mollit",
+    "adipisicing",
+    "consectetur",
+    "aliquip",
+    "veniam",
+    "esse",
+    "exercitation"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Natasha Steele"
+    },
+    {
+      "id": 1,
+      "name": "Virginia Farley"
+    },
+    {
+      "id": 2,
+      "name": "Kathy Osborn"
+    }
+  ]
+}

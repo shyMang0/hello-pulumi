@@ -1,0 +1,40 @@
+{
+  "id": "660caf0b8f44119c7eb82dd9",
+  "guid": "5e524fee-5e41-472a-aa79-59be805c0246",
+  "isActive": false,
+  "balance": "$2,106.60",
+  "age": 26,
+  "eyeColor": "blue",
+  "name": "Weaver Bishop",
+  "gender": "male",
+  "company": "GENMOM",
+  "email": "weaverbishop@genmom.com",
+  "phone": "+1 (992) 587-2769",
+  "address": "267 Nassau Avenue, Enoree, Michigan, 1327",
+  "registered": "2017-06-15T01:28:43 -08:00",
+  "latitude": -14.439466,
+  "longitude": 115.340693,
+  "tags": [
+    "est",
+    "nisi",
+    "sit",
+    "est",
+    "labore",
+    "dolor",
+    "anim"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Page Ochoa"
+    },
+    {
+      "id": 1,
+      "name": "Danielle Sparks"
+    },
+    {
+      "id": 2,
+      "name": "Mccormick Silva"
+    }
+  ]
+}

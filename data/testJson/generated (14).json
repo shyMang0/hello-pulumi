@@ -1,0 +1,40 @@
+{
+  "id": "660caefcfb3fc6a7fc4d6633",
+  "guid": "b7ca7572-9d56-47a6-92aa-0048daf9bbb0",
+  "isActive": true,
+  "balance": "$3,351.02",
+  "age": 24,
+  "eyeColor": "blue",
+  "name": "Mathis Branch",
+  "gender": "male",
+  "company": "SENMAO",
+  "email": "mathisbranch@senmao.com",
+  "phone": "+1 (814) 506-2287",
+  "address": "291 Hill Street, Martell, Washington, 2410",
+  "registered": "2016-04-24T04:30:12 -08:00",
+  "latitude": 80.700909,
+  "longitude": 40.35636,
+  "tags": [
+    "id",
+    "voluptate",
+    "ex",
+    "magna",
+    "minim",
+    "ea",
+    "cillum"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Bryant Morton"
+    },
+    {
+      "id": 1,
+      "name": "Knox Carter"
+    },
+    {
+      "id": 2,
+      "name": "Fisher Galloway"
+    }
+  ]
+}

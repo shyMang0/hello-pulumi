@@ -1,0 +1,40 @@
+{
+  "id": "660caedbd25a31b1d3aeeb7d",
+  "guid": "7b89417d-e91e-48fd-92aa-08d6737792c6",
+  "isActive": false,
+  "balance": "$3,568.38",
+  "age": 31,
+  "eyeColor": "green",
+  "name": "Simpson Beard",
+  "gender": "male",
+  "company": "CINCYR",
+  "email": "simpsonbeard@cincyr.com",
+  "phone": "+1 (975) 464-3132",
+  "address": "304 Summit Street, Norwood, South Carolina, 4382",
+  "registered": "2014-07-05T12:36:01 -08:00",
+  "latitude": 73.616929,
+  "longitude": -17.312025,
+  "tags": [
+    "fugiat",
+    "Lorem",
+    "esse",
+    "mollit",
+    "laboris",
+    "veniam",
+    "est"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Jeannette Carter"
+    },
+    {
+      "id": 1,
+      "name": "Valarie Reyes"
+    },
+    {
+      "id": 2,
+      "name": "Bernard Hinton"
+    }
+  ]
+}

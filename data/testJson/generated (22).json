@@ -1,0 +1,40 @@
+{
+  "id": "660caf09da28fa0f0d9cfba9",
+  "guid": "dae856c9-d1d7-4734-add7-93c2dbb2176d",
+  "isActive": true,
+  "balance": "$1,531.81",
+  "age": 26,
+  "eyeColor": "blue",
+  "name": "Dena Robles",
+  "gender": "female",
+  "company": "BOILICON",
+  "email": "denarobles@boilicon.com",
+  "phone": "+1 (978) 476-2157",
+  "address": "358 Raleigh Place, Savage, Louisiana, 3199",
+  "registered": "2022-03-30T03:37:46 -08:00",
+  "latitude": 62.822577,
+  "longitude": -76.136999,
+  "tags": [
+    "enim",
+    "ex",
+    "aute",
+    "exercitation",
+    "velit",
+    "eiusmod",
+    "tempor"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Sheri Thornton"
+    },
+    {
+      "id": 1,
+      "name": "Joyner Duncan"
+    },
+    {
+      "id": 2,
+      "name": "Lynne Suarez"
+    }
+  ]
+}

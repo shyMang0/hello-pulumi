@@ -1,0 +1,40 @@
+{
+  "id": "660caeff55705cefb152923d",
+  "guid": "b7200ef2-a2ac-48e9-bed1-b5e91bc2eab1",
+  "isActive": true,
+  "balance": "$2,796.58",
+  "age": 30,
+  "eyeColor": "green",
+  "name": "Sosa Bowman",
+  "gender": "male",
+  "company": "BIZMATIC",
+  "email": "sosabowman@bizmatic.com",
+  "phone": "+1 (839) 513-3076",
+  "address": "589 Harbor Court, Ezel, Wyoming, 5475",
+  "registered": "2021-12-31T02:51:52 -08:00",
+  "latitude": 9.787997,
+  "longitude": 164.696678,
+  "tags": [
+    "ad",
+    "laboris",
+    "nulla",
+    "laboris",
+    "ex",
+    "cupidatat",
+    "amet"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Elisa Montoya"
+    },
+    {
+      "id": 1,
+      "name": "Deanne Berry"
+    },
+    {
+      "id": 2,
+      "name": "Kristina Norman"
+    }
+  ]
+}

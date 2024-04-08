@@ -1,0 +1,40 @@
+{
+  "id": "660caef9c2fcfbda258cd5e8",
+  "guid": "8bd9c8bd-da86-4fda-a32f-bc1238201f95",
+  "isActive": true,
+  "balance": "$2,033.39",
+  "age": 27,
+  "eyeColor": "blue",
+  "name": "Kayla Tucker",
+  "gender": "female",
+  "company": "GREEKER",
+  "email": "kaylatucker@greeker.com",
+  "phone": "+1 (979) 563-2216",
+  "address": "577 McKinley Avenue, Garberville, Palau, 7507",
+  "registered": "2023-12-14T06:39:09 -08:00",
+  "latitude": -7.242647,
+  "longitude": -156.12883,
+  "tags": [
+    "voluptate",
+    "veniam",
+    "mollit",
+    "consectetur",
+    "labore",
+    "eiusmod",
+    "qui"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Fleming Montgomery"
+    },
+    {
+      "id": 1,
+      "name": "Beatriz Carter"
+    },
+    {
+      "id": 2,
+      "name": "Kara Wilkinson"
+    }
+  ]
+}

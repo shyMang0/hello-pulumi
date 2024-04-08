@@ -1,0 +1,40 @@
+{
+  "id": "660caef59394f2c435200e0e",
+  "guid": "e98aab81-fd84-4290-b129-87497daa52a1",
+  "isActive": true,
+  "balance": "$2,113.74",
+  "age": 28,
+  "eyeColor": "blue",
+  "name": "Glass Hines",
+  "gender": "male",
+  "company": "FURNIGEER",
+  "email": "glasshines@furnigeer.com",
+  "phone": "+1 (926) 534-3972",
+  "address": "691 Jaffray Street, Highland, Maryland, 5556",
+  "registered": "2021-08-07T06:14:22 -08:00",
+  "latitude": 35.714632,
+  "longitude": 5.909208,
+  "tags": [
+    "ad",
+    "Lorem",
+    "nisi",
+    "qui",
+    "laboris",
+    "do",
+    "occaecat"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Chapman Mejia"
+    },
+    {
+      "id": 1,
+      "name": "Brianna Joyner"
+    },
+    {
+      "id": 2,
+      "name": "Irene Macdonald"
+    }
+  ]
+}

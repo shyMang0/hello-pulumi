@@ -1,0 +1,40 @@
+{
+  "id": "660caf1145ba1baa0a6f2708",
+  "guid": "496551bf-2796-4922-8633-79f88a4f635c",
+  "isActive": true,
+  "balance": "$1,607.13",
+  "age": 20,
+  "eyeColor": "blue",
+  "name": "Burt Guy",
+  "gender": "male",
+  "company": "XTH",
+  "email": "burtguy@xth.com",
+  "phone": "+1 (956) 514-3517",
+  "address": "969 Love Lane, Mulberry, Louisiana, 8606",
+  "registered": "2015-12-06T11:26:57 -08:00",
+  "latitude": -31.540811,
+  "longitude": 40.336947,
+  "tags": [
+    "aliquip",
+    "ex",
+    "velit",
+    "commodo",
+    "laborum",
+    "consectetur",
+    "minim"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Callie Farmer"
+    },
+    {
+      "id": 1,
+      "name": "Lakeisha Michael"
+    },
+    {
+      "id": 2,
+      "name": "Sullivan Beard"
+    }
+  ]
+}

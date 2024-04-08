@@ -1,0 +1,40 @@
+{
+  "id": "660caf0451f4c13611d34507",
+  "guid": "b6ad9189-97e1-4655-a4ac-1386cbdcccc0",
+  "isActive": true,
+  "balance": "$2,853.23",
+  "age": 20,
+  "eyeColor": "blue",
+  "name": "Pacheco Daniels",
+  "gender": "male",
+  "company": "BIZMATIC",
+  "email": "pachecodaniels@bizmatic.com",
+  "phone": "+1 (990) 596-2702",
+  "address": "503 Barbey Street, Linganore, Alabama, 2686",
+  "registered": "2021-12-09T12:39:21 -08:00",
+  "latitude": -8.215866,
+  "longitude": -65.174423,
+  "tags": [
+    "ullamco",
+    "incididunt",
+    "sint",
+    "nostrud",
+    "est",
+    "ex",
+    "fugiat"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Lawrence Ware"
+    },
+    {
+      "id": 1,
+      "name": "Goff Watson"
+    },
+    {
+      "id": 2,
+      "name": "Carlson Chapman"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "660caef33d8e86123abd4b89",
+  "guid": "a2448e6b-2f1d-4516-9f95-0432e4bcb508",
+  "isActive": true,
+  "balance": "$3,467.16",
+  "age": 37,
+  "eyeColor": "green",
+  "name": "Maureen Sanchez",
+  "gender": "female",
+  "company": "PAWNAGRA",
+  "email": "maureensanchez@pawnagra.com",
+  "phone": "+1 (908) 501-2866",
+  "address": "340 Paerdegat Avenue, Beaverdale, Indiana, 9560",
+  "registered": "2016-08-16T07:42:30 -08:00",
+  "latitude": 85.137612,
+  "longitude": -35.732609,
+  "tags": [
+    "deserunt",
+    "et",
+    "occaecat",
+    "ea",
+    "consectetur",
+    "minim",
+    "labore"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Gentry Henderson"
+    },
+    {
+      "id": 1,
+      "name": "Kimberley Conrad"
+    },
+    {
+      "id": 2,
+      "name": "Charmaine Drake"
+    }
+  ]
+}

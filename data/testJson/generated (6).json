@@ -1,0 +1,40 @@
+{
+  "id": "660caef0a6db48ba2c222dcd",
+  "guid": "b98ec833-3283-4f0c-84a4-9f14758d1424",
+  "isActive": true,
+  "balance": "$2,119.00",
+  "age": 25,
+  "eyeColor": "blue",
+  "name": "Walton Wilcox",
+  "gender": "male",
+  "company": "BOINK",
+  "email": "waltonwilcox@boink.com",
+  "phone": "+1 (848) 581-2141",
+  "address": "558 Hampton Avenue, Innsbrook, Connecticut, 8197",
+  "registered": "2019-09-08T07:01:39 -08:00",
+  "latitude": 46.561617,
+  "longitude": 119.049723,
+  "tags": [
+    "ad",
+    "incididunt",
+    "ea",
+    "ipsum",
+    "dolore",
+    "eu",
+    "sit"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Dollie Weiss"
+    },
+    {
+      "id": 1,
+      "name": "Bennett Small"
+    },
+    {
+      "id": 2,
+      "name": "Carmella Horn"
+    }
+  ]
+}

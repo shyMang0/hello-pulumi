@@ -1,0 +1,40 @@
+{
+  "id": "660caf0a14326e936b346efd",
+  "guid": "6a542cec-564e-4bc0-8178-d76384f6e84f",
+  "isActive": false,
+  "balance": "$3,322.48",
+  "age": 36,
+  "eyeColor": "blue",
+  "name": "Tamera Ford",
+  "gender": "female",
+  "company": "AQUACINE",
+  "email": "tameraford@aquacine.com",
+  "phone": "+1 (825) 446-2251",
+  "address": "538 Polar Street, Salunga, Vermont, 749",
+  "registered": "2019-02-09T08:26:53 -08:00",
+  "latitude": 60.088815,
+  "longitude": -19.378731,
+  "tags": [
+    "esse",
+    "exercitation",
+    "cillum",
+    "non",
+    "id",
+    "sint",
+    "ex"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Pace Boyle"
+    },
+    {
+      "id": 1,
+      "name": "Hurley Stuart"
+    },
+    {
+      "id": 2,
+      "name": "Mcdonald Ward"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "660caeeb4a46ddd070d1d4f2",
+  "guid": "04fddd2f-5958-40d3-9cc3-bf482c0b6f71",
+  "isActive": false,
+  "balance": "$3,624.58",
+  "age": 40,
+  "eyeColor": "blue",
+  "name": "Herring Shelton",
+  "gender": "male",
+  "company": "PYRAMIA",
+  "email": "herringshelton@pyramia.com",
+  "phone": "+1 (886) 417-3124",
+  "address": "460 Willmohr Street, Salix, North Carolina, 3568",
+  "registered": "2021-01-18T02:22:42 -08:00",
+  "latitude": -8.51802,
+  "longitude": 158.241542,
+  "tags": [
+    "labore",
+    "eu",
+    "nisi",
+    "velit",
+    "dolor",
+    "ex",
+    "ipsum"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Josefina Cohen"
+    },
+    {
+      "id": 1,
+      "name": "Delgado Frost"
+    },
+    {
+      "id": 2,
+      "name": "Jackie Finch"
+    }
+  ]
+}

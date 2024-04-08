@@ -1,0 +1,40 @@
+{
+  "id": "660caf02297f4d81f599d707",
+  "guid": "d1bf4128-113c-45c8-a0d2-583679618a3d",
+  "isActive": true,
+  "balance": "$1,435.19",
+  "age": 40,
+  "eyeColor": "blue",
+  "name": "Leanna Mayer",
+  "gender": "female",
+  "company": "PETICULAR",
+  "email": "leannamayer@peticular.com",
+  "phone": "+1 (805) 548-2608",
+  "address": "515 Harman Street, Ypsilanti, Alaska, 1855",
+  "registered": "2015-03-01T09:25:07 -08:00",
+  "latitude": 59.533193,
+  "longitude": -178.929788,
+  "tags": [
+    "amet",
+    "ad",
+    "eu",
+    "qui",
+    "irure",
+    "culpa",
+    "esse"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Annmarie Mathis"
+    },
+    {
+      "id": 1,
+      "name": "Miranda Gentry"
+    },
+    {
+      "id": 2,
+      "name": "Rosalinda Stewart"
+    }
+  ]
+}

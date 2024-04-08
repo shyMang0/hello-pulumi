@@ -1,0 +1,40 @@
+{
+  "id": "660caf0718fa1a4560903730",
+  "guid": "1a06dc82-5a6e-4ad5-9cb0-b1e9cb0e1d3b",
+  "isActive": false,
+  "balance": "$2,411.23",
+  "age": 40,
+  "eyeColor": "blue",
+  "name": "Katina Walls",
+  "gender": "female",
+  "company": "ETERNIS",
+  "email": "katinawalls@eternis.com",
+  "phone": "+1 (988) 536-2183",
+  "address": "926 Tillary Street, Dargan, Massachusetts, 8427",
+  "registered": "2019-03-15T10:59:33 -08:00",
+  "latitude": -29.635728,
+  "longitude": -62.398974,
+  "tags": [
+    "sunt",
+    "ullamco",
+    "mollit",
+    "ex",
+    "elit",
+    "adipisicing",
+    "enim"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Cline Tanner"
+    },
+    {
+      "id": 1,
+      "name": "Marissa Noel"
+    },
+    {
+      "id": 2,
+      "name": "Wilson Drake"
+    }
+  ]
+}

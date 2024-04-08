@@ -1,0 +1,40 @@
+{
+  "id": "660caf0fcd193cb9b80eb411",
+  "guid": "76a1adf9-6be2-4e8a-b046-97ab2f957616",
+  "isActive": false,
+  "balance": "$1,642.71",
+  "age": 33,
+  "eyeColor": "brown",
+  "name": "Maggie Massey",
+  "gender": "female",
+  "company": "ELPRO",
+  "email": "maggiemassey@elpro.com",
+  "phone": "+1 (944) 482-3479",
+  "address": "356 Rugby Road, Cascades, Arkansas, 3854",
+  "registered": "2015-02-10T10:52:49 -08:00",
+  "latitude": 71.334543,
+  "longitude": 30.03857,
+  "tags": [
+    "velit",
+    "voluptate",
+    "nostrud",
+    "excepteur",
+    "sit",
+    "mollit",
+    "labore"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Houston Johns"
+    },
+    {
+      "id": 1,
+      "name": "Leah Osborn"
+    },
+    {
+      "id": 2,
+      "name": "Mai Fleming"
+    }
+  ]
+}
