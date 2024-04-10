@@ -1,0 +1,7 @@
+name: Lambdas
+runtime: nodejs
+description: 
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/625d73f5-9706-4d7d-a498-fc7ca1f55d0d.zip

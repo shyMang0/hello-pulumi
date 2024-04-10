@@ -28,8 +28,7 @@ export const handler = async (event: SQSEvent): Promise<any> => {
                 Item: {
                     id: record.messageId,
                     filename: fileName,
-                    // json: jsonVal,
-                    json: "POGE",
+                    json: jsonVal,
                 },
             },
         });

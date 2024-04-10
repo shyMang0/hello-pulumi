@@ -58,8 +58,19 @@ const sqsPolicy = new aws.sqs.QueuePolicy("dcc-policy", {
     },
 });
 
+const dynamoTable = new aws.dynamodb.Table("dcc-table", {
+    attributes: [{ name: "id", type: "S" }],
+    hashKey: "id",
+    streamEnabled: true,
+    streamViewType: "NEW_IMAGE",
+    readCapacity: 1,
+    writeCapacity: 1,
+});
+
 export const BUCKET_NAME = bucket.bucket;
 export const SQS_ARN = queue.arn;
+export const DYNAMO_NAME = dynamoTable.name;
+export const DYNAMO_STREAMARN = dynamoTable.streamArn;
 // export const BUCKET = bucket;
 // export const queueUrl = queue.url;
 export const INFRA_TEST = {

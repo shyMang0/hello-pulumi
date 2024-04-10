@@ -10,7 +10,7 @@
   "dependencies": {
     "@pulumi/aws": "6.29.0",
     "@pulumi/pulumi": "^3.112.0",
-    "aws-sdk": "^2.1593.0"
+    "aws-sdk": "^2.1594.0"
   },
   "devDependencies": {
     "jest": "^29.7.0",

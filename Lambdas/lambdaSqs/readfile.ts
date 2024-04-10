@@ -6,12 +6,12 @@ export async function readfile(bucketName: string, fileName: string): Promise<an
         Bucket: bucketName,
         Key: fileName,
     });
-    console.log("READ readfile", bucketName, fileName);
+
     try {
         const res = await client.send(command);
         const fileStr = await res.Body?.transformToString();
         // if (!fileStr) throw new Error("File is empty");
-        // console.log("READ FROM BUCKET", fileStr);
+        console.log("READ FROM BUCKET", fileStr);
         return toJson(fileStr);
     } catch (err) {
         console.error(err);

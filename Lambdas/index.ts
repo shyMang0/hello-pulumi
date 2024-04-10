@@ -5,19 +5,17 @@ import * as pulumi from "@pulumi/pulumi";
 import { DynamoDBStreamEvent } from "aws-lambda";
 
 const stackA = new pulumi.StackReference("shyMang0/BucketSqs/dev");
-const SQS_ARN = stackA.getOutput("SQS_ARN");
-const DYNAMO_NAME = stackA.getOutput("DYNAMO_NAME");
-const DYNAMO_STREAMARN = stackA.getOutput("DYNAMO_STREAMARN");
-// const SQS_ARN = "arn:aws:sqs:us-east-1:123456789012:dcc-queue";
+// const TABLE_NAME = stackA.getOutput("TABLE_NAME");
+const TABLE_NAME = "arn:aws:sqs:us-east-1:123456789012:dcc-queue";
 
-// const dynamoTable = new aws.dynamodb.Table("dcc-table", {
-//     attributes: [{ name: "id", type: "S" }],
-//     hashKey: "id",
-//     streamEnabled: true,
-//     streamViewType: "NEW_IMAGE",
-//     readCapacity: 1,
-//     writeCapacity: 1,
-// });
+const dynamoTable = new aws.dynamodb.Table("dcc-table", {
+    attributes: [{ name: "id", type: "S" }],
+    hashKey: "id",
+    streamEnabled: true,
+    streamViewType: "NEW_IMAGE",
+    readCapacity: 1,
+    writeCapacity: 1,
+});
 
 // NEW LAMBDA FOR SQS
 const lambdaSqs = new aws.lambda.CallbackFunction("dcc-lambda-sqs", {
@@ -26,7 +24,7 @@ const lambdaSqs = new aws.lambda.CallbackFunction("dcc-lambda-sqs", {
     timeout: 30,
     environment: {
         variables: {
-            DYNAMO_TABLE_NAME: DYNAMO_NAME, //referenced from output from 1st stack
+            DYNAMO_TABLE_NAME: dynamoTable.name, //referenced from output from 1st stack
         },
     },
 });
@@ -65,27 +63,28 @@ const lambdaStream = new aws.lambda.CallbackFunction("dcc-lambda-stream", {
     },
 });
 
-//to the lambda role attach AmazonSNSPublish policy
-const lambdaRole = lambdaStream?.roleInstance?.name.apply((role: any) => {
-    const policy = new aws.iam.RolePolicy("lambda-sns-policy", {
-        role: role,
-        policy: {
-            Version: "2012-10-17",
-            Statement: [
-                {
-                    Effect: "Allow",
-                    Action: "sns:Publish",
-                    Resource: snsTopic.arn,
-                },
-            ],
-        },
-    });
-    return role;
-});
+//to the lambda role attach AmazonSNSFullAccess policy
+let lambdaRole: any;
+// lambdaRole = lambdaStream?.roleInstance?.name.apply((role: any) => {
+//     const policy = new aws.iam.RolePolicy("lambda-sns-policy", {
+//         role: role,
+//         policy: {
+//             Version: "2012-10-17",
+//             Statement: [
+//                 {
+//                     Effect: "Allow",
+//                     Action: "sns:Publish",
+//                     Resource: snsTopic.arn,
+//                 },
+//             ],
+//         },
+//     });
+//     return role;
+// });
 
 // MAP DYNAMO STREAM EVENT TO LAMBDA
 const lambdaTriggerStream = new aws.lambda.EventSourceMapping("lambda-trigger-stream", {
-    eventSourceArn: DYNAMO_STREAMARN,
+    eventSourceArn: dynamoTable.streamArn,
     functionName: lambdaStream.name,
     batchSize: 5,
     maximumBatchingWindowInSeconds: 5,
@@ -106,6 +105,7 @@ export const LAMBDA_SQS = lambdaSqs.arn;
 export const LAMBDA_STREAM = lambdaStream.arn;
 
 export const INFRA_TEST = {
+    dynamoUrn: dynamoTable.urn,
     lambdaTriggerSqsUrn: lambdaTriggerSqs.urn,
     snsTopicUrn: snsTopic.urn,
     lambdaTriggerStreamUrn: lambdaTriggerStream.urn,
