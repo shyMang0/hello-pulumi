@@ -1,4 +1,4 @@
-name: LambdaDynamo
+name: Lambda
 runtime: nodejs
 description: 
 config:

@@ -1,23 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import { handler as lambdaSqsHandler } from "./lambdaSqs";
 import { handler as lambdaStreamHandler } from "./lambdaStream";
-import * as pulumi from "@pulumi/pulumi";
-import { DynamoDBStreamEvent } from "aws-lambda";
+// import { DynamoDBStreamEvent } from "aws-lambda";
 
-const stackA = new pulumi.StackReference("shyMang0/BucketSqs/dev");
+const stackA = new pulumi.StackReference("shyMang0/AwsInfra/dev");
 const SQS_ARN = stackA.getOutput("SQS_ARN");
 const DYNAMO_NAME = stackA.getOutput("DYNAMO_NAME");
 const DYNAMO_STREAMARN = stackA.getOutput("DYNAMO_STREAMARN");
-// const SQS_ARN = "arn:aws:sqs:us-east-1:123456789012:dcc-queue";
-
-// const dynamoTable = new aws.dynamodb.Table("dcc-table", {
-//     attributes: [{ name: "id", type: "S" }],
-//     hashKey: "id",
-//     streamEnabled: true,
-//     streamViewType: "NEW_IMAGE",
-//     readCapacity: 1,
-//     writeCapacity: 1,
-// });
+const SNSTOPIC_ARN = stackA.getOutput("SNSTOPIC_ARN");
 
 // NEW LAMBDA FOR SQS
 const lambdaSqs = new aws.lambda.CallbackFunction("dcc-lambda-sqs", {
@@ -44,15 +35,6 @@ const lambdaTriggerSqs = new aws.lambda.EventSourceMapping("lambda-trigger-sqs",
     },
 });
 
-const snsTopic = new aws.sns.Topic("dcc-topic", {
-    displayName: "DccTest Topic to email",
-});
-const subscriptionEmail = new aws.sns.TopicSubscription("subscription-email", {
-    topic: snsTopic.arn,
-    protocol: "email",
-    endpoint: "carinodrex.ext@gmail.com",
-});
-
 // NEW LAMBDA FOR DYNA STREAM to SNS
 const lambdaStream = new aws.lambda.CallbackFunction("dcc-lambda-stream", {
     runtime: aws.lambda.Runtime.NodeJS20dX,
@@ -60,7 +42,7 @@ const lambdaStream = new aws.lambda.CallbackFunction("dcc-lambda-stream", {
     timeout: 30,
     environment: {
         variables: {
-            TOPIC_ARN: snsTopic.arn, // output from 1st stack
+            TOPIC_ARN: SNSTOPIC_ARN, // output from 1st stack
         },
     },
 });
@@ -75,7 +57,7 @@ const lambdaRole = lambdaStream?.roleInstance?.name.apply((role: any) => {
                 {
                     Effect: "Allow",
                     Action: "sns:Publish",
-                    Resource: snsTopic.arn,
+                    Resource: SNSTOPIC_ARN,
                 },
             ],
         },
@@ -101,15 +83,6 @@ const lambdaTriggerStream = new aws.lambda.EventSourceMapping("lambda-trigger-st
 });
 
 export const PARAMETER_SQS_ARN = SQS_ARN;
-export const TOPIC_ARN = snsTopic.arn;
+export const TOPIC_ARN = SNSTOPIC_ARN;
 export const LAMBDA_SQS = lambdaSqs.arn;
 export const LAMBDA_STREAM = lambdaStream.arn;
-
-export const INFRA_TEST = {
-    lambdaTriggerSqsUrn: lambdaTriggerSqs.urn,
-    snsTopicUrn: snsTopic.urn,
-    lambdaTriggerStreamUrn: lambdaTriggerStream.urn,
-    lambdaSqsUrn: lambdaSqs.urn,
-    lambdaStreamUrn: lambdaStream.urn,
-    subscriptionEmailUrn: subscriptionEmail.urn,
-};

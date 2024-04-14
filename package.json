@@ -1,7 +1,7 @@
 {
 	"name": "hellopulumi",
 	"workspaces": [
-		"BucketSqs",
+		"AwsInfra",
 		"Lambda"
 	],
 	"scripts": {
