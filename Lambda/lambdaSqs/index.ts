@@ -29,7 +29,6 @@ export const handler = async (event: SQSEvent): Promise<any> => {
                     id: record.messageId,
                     filename: fileName,
                     json: jsonVal,
-                    // json: "POGE",
                 },
             },
         });
@@ -38,7 +37,6 @@ export const handler = async (event: SQSEvent): Promise<any> => {
     try {
         await dynamoDB.send(new BatchWriteCommand(params));
         console.log("Data inserted into DynamoDB", records.length);
-        // return true;
     } catch (error) {
         console.error("Error inserting data into DynamoDB:", error);
         throw error;

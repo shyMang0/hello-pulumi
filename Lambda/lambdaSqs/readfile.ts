@@ -10,8 +10,7 @@ export async function readfile(bucketName: string, fileName: string): Promise<an
     try {
         const res = await client.send(command);
         const fileStr = await res.Body?.transformToString();
-        // if (!fileStr) throw new Error("File is empty");
-        // console.log("READ FROM BUCKET", fileStr);
+        if (!fileStr) throw new Error("File is empty");
         return toJson(fileStr);
     } catch (err) {
         console.error(err);
@@ -22,7 +21,6 @@ function toJson(str: string | undefined) {
     if (!str) throw new Error("File is empty");
     try {
         return JSON.parse(str);
-        // return true;
     } catch (e) {
         throw new Error("Invalid JSON file");
     }
