@@ -4,9 +4,15 @@
 		"BucketSqs",
 		"Lambda"
 	],
+	"scripts": {
+		"test": "jest"
+	},
 	"devDependencies": {
 		"@types/node": "^20.12.7",
-		"prettier": "3.2.5"
+		"prettier": "3.2.5",
+		"@types/jest": "^29.5.12",
+		"jest": "^29.7.0",
+		"ts-jest": "^29.1.2"
 	},
 	"dependencies": {
 		"@pulumi/aws": "^6.30.0",
