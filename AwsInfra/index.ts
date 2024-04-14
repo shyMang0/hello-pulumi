@@ -11,12 +11,6 @@ const bucketNotification = new aws.s3.BucketNotification("dcc-bucket-notificatio
     // important to to enable eventbridge
 });
 
-// Create an SQS queue
-const queue = new aws.sqs.Queue("dcc-queue", {
-    // delaySeconds: 5,
-    // receiveWaitTimeSeconds: 5,
-});
-
 // Create an EventBridge rule that triggers on S3 bucket file uploads only
 const rule = new aws.cloudwatch.EventRule("dcc-rule", {
     eventPattern: bucket.bucket.apply((bucketName) =>
@@ -30,6 +24,12 @@ const rule = new aws.cloudwatch.EventRule("dcc-rule", {
             },
         })
     ),
+});
+
+// Create an SQS queue
+const queue = new aws.sqs.Queue("dcc-queue", {
+    // delaySeconds: 5,
+    // receiveWaitTimeSeconds: 5,
 });
 
 // Set the SQS queue as the target for the EventBridge rule
