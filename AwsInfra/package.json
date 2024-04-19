@@ -8,9 +8,9 @@
   },
   "author": "",
   "dependencies": {
-    "@pulumi/aws": "6.30.0",
-    "@pulumi/pulumi": "^3.112.0",
-    "aws-sdk": "^2.1599.0"
+    "@pulumi/aws": "6.31.1",
+    "@pulumi/pulumi": "^3.113.2",
+    "aws-sdk": "^2.1602.0"
   },
   "devDependencies": {
     "jest": "^29.7.0",
