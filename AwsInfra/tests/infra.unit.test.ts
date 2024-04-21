@@ -79,5 +79,7 @@ describe("Infrastructure", function () {
                 }
             });
         });
+
+        //add sqs should have a dql
     });
 });

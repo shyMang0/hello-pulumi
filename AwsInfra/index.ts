@@ -26,11 +26,25 @@ const rule = new aws.cloudwatch.EventRule("dcc-rule", {
     ),
 });
 
+// dead letter queue for SQS
+const dlq = new aws.sqs.Queue("dcc-dlq", {
+    messageRetentionSeconds: 86400 * 14,
+});
+
 // Create an SQS queue
 const queue = new aws.sqs.Queue("dcc-queue", {
+    messageRetentionSeconds: 86400,
+    redrivePolicy: dlq.arn.apply((arn) =>
+        JSON.stringify({
+            maxReceiveCount: 3, // Number of times a message is delivered before being sent to the DLQ
+            deadLetterTargetArn: arn, // The ARN of the DLQ
+        })
+    ),
     // delaySeconds: 5,
     // receiveWaitTimeSeconds: 5,
 });
+
+// do i need to add policy to allow queue to forward to dlq?
 
 // Set the SQS queue as the target for the EventBridge rule
 const target = new aws.cloudwatch.EventTarget("dcc-target", {

@@ -27,6 +27,7 @@ const lambdaTriggerSqs = new aws.lambda.EventSourceMapping("lambda-trigger-sqs",
     functionName: lambdaSqs.name,
     batchSize: 5,
     maximumBatchingWindowInSeconds: 3,
+    functionResponseTypes: ["ReportBatchItemFailures"], // equivalent of reportBatchItemFailures: true,
     scalingConfig: {
         maximumConcurrency: 2,
         //limits to 2 concurrent executions
