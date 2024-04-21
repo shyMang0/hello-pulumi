@@ -1,9 +1,9 @@
 import { DynamoDBClient, WriteRequest } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, BatchWriteCommand, BatchWriteCommandInput } from "@aws-sdk/lib-dynamodb";
-import { SQSEvent, S3ObjectCreatedNotificationEvent, SQSBatchItemFailure, SQSBatchResponse, Context } from "aws-lambda";
-import { s3Readfile, processRecord } from "./functions";
+import { SQSEvent, SQSBatchItemFailure, SQSBatchResponse } from "aws-lambda";
+import { processRecord } from "./functions";
 
-export const handler = async (event: SQSEvent, context: Context): Promise<SQSBatchResponse> => {
+export const handler = async (event: SQSEvent): Promise<SQSBatchResponse> => {
     const dynamoDB = DynamoDBDocumentClient.from(new DynamoDBClient({}));
     const tableName = process.env.DYNAMO_TABLE_NAME as string;
     const records = event.Records;
@@ -23,11 +23,10 @@ export const handler = async (event: SQSEvent, context: Context): Promise<SQSBat
         try {
             const pushValue = await processRecord(record);
             params.RequestItems[tableName].push(pushValue);
-            //remove the item from batchItemFailures
+            //remove the item from batchItemFailures if successful
             batchItemFailures = batchItemFailures.filter((item) => item.itemIdentifier !== record.messageId);
         } catch (error) {
             console.error("Error processing record should return batchItemFailures", error);
-            // batchItemFailures.push({ itemIdentifier: record.messageId });
         }
     }
 
