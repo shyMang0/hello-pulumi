@@ -3,3 +3,4 @@ Hey from my drex-carino account
     sing=true test
     4th
     5th
+    6th with --sign
